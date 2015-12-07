@@ -35,7 +35,8 @@ get '/entries/:id' do
 end
 
 put '/entries/:id' do
-  if current_user
+  entry = Entry.find(params[:id])
+  if current_user && entry && current_user == entry.author
     @entry.assign_attributes(params[:entry])
 
     if @entry.save
@@ -44,13 +45,15 @@ put '/entries/:id' do
       @errors = @entry.errors.full_messages
       erb :'entries/edit'
     end
+
   else
     erb :'404'
   end
 end
 
 delete '/entries/:id' do
-  if current_user
+  entry = Entry.find(params[:id])
+  if current_user && entry && current_user == entry.author
     @entry.destroy
     redirect '/entries'
   else
