@@ -6,6 +6,7 @@ end
 
 post '/entries' do
   @entry = Entry.new(params[:entry])
+  @entry.author = current_user
 
   if @entry.save
     redirect "/entries/#{@entry.id}"

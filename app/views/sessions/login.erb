@@ -1,8 +1,4 @@
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-<% end %>
+<%= @error %>
 
 <form action="/sessions" method="POST">
   <label for="username">Username:</label>
