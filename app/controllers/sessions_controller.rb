@@ -3,10 +3,20 @@ get '/login' do
 end
 
 post '/sessions' do
-  user = User.find_by(username: params[:username])
-  session[:user_id] = user.id if user && user.password == params[:password]
+  @errors = []
+  @errors << "username must not be blank" unless params[params[:username]]
+  @errors << "email must not be blank" unless params[:email]
+  @errors << "password must not be blank" unless params[:password]
 
-  redirect '/'
+  user = User.find_by(username: params[:username])
+
+  if user && user.password == params[:password]
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    @errors << "incorrect username or password"
+    erb :'sessions/login'
+  end
 end
 
 get '/logout' do

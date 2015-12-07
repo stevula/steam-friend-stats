@@ -1,7 +1,6 @@
 class Entry < ActiveRecord::Base
+  belongs_to :author, class_name: 'User'
   validates :title, :body, { presence: true }
-
-  belongs_to :user
 
   def self.most_recent
     Entry.order(created_at: :desc).limit(5)

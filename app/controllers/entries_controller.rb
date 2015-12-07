@@ -16,7 +16,11 @@ post '/entries' do
 end
 
 get '/entries/new' do
-  erb :'entries/new'
+  if current_user
+    erb :'entries/new'
+  else
+    erb :'404'
+  end
 end
 
 
@@ -30,22 +34,35 @@ get '/entries/:id' do
 end
 
 put '/entries/:id' do
-  @entry.assign_attributes(params[:entry])
+  if current_user
+    @entry.assign_attributes(params[:entry])
 
-  if @entry.save
-    redirect "entries/#{@entry.id}"
+    if @entry.save
+      redirect "entries/#{@entry.id}"
+    else
+      @errors = @entry.errors.full_messages
+      erb :'entries/edit'
+    end
   else
-    @errors = @entry.errors.full_messages
-    erb :'entries/edit'
+    erb :'404'
   end
 end
 
 delete '/entries/:id' do
-  @entry.destroy
-  redirect '/entries'
+  if current_user
+    @entry.destroy
+    redirect '/entries'
+  else
+    erb :'404'
+  end
 end
 
 get '/entries/:id/edit' do
-  find_and_ensure_entry
-  erb :'entries/edit'
+  if current_user
+    find_and_ensure_entry
+    erb :'entries/edit'
+  else
+    erb :'404'
+  end
+
 end
