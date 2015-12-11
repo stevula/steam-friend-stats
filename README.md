@@ -1,3 +1,4 @@
+# steam-friend-thingy
 GetFriendList
 GetPlayerAchievements
 GetUserStatsForGame
