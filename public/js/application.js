@@ -6,16 +6,19 @@ var formListener = function(){
   $('#submit').on('click', function(e){
     e.preventDefault();
 
-    var steamID = $('#steam_id').val();
+    var communityID = $('#steam_id').val();
+
+    getFriendList(communityID);
   });
 };
 
-var getFriendList = function(steam_id){
-  var url = "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=" +
-  API_KEY + "&steamid=76561197960435530&relationship=friend";
-
+var getFriendCount = function(communityID){
   $.ajax({
-    url: url,
-    dataType: 'json'
+    url: '/requests',
+    method: 'POST',
+    data: { query: 'count_friends', communityID: communityID }
+  }).done(function(response){
+    $('body').append(response);
   });
 };
+
