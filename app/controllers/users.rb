@@ -16,12 +16,3 @@ post '/users' do
     erb :'users/register'
   end
 end
-
-get '/users/:id/entries' do
-  if User.find_by(id: params[:id])
-    @user = User.find(params[:id])
-    erb :'users/entries/show'
-  else
-    erb :'404'
-  end
-end
