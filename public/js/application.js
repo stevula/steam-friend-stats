@@ -8,17 +8,23 @@ var formListener = function(){
 
     var communityID = $('#steam_id').val();
 
-    getFriendList(communityID);
+    $.ajax({
+      url: '/stats',
+      method: 'GET',
+      data: { communityID: communityID }
+    }).done(function(response){
+      $('body').append(response);
+    });
   });
 };
 
-var getFriendCount = function(communityID){
-  $.ajax({
-    url: '/requests',
-    method: 'POST',
-    data: { query: 'count_friends', communityID: communityID }
-  }).done(function(response){
-    $('body').append(response);
-  });
-};
+// var getFriendCount = function(communityID){
+//   $.ajax({
+//     url: '/requests',
+//     method: 'GET',
+//     data: { query: 'count_friends', communityID: communityID }
+//   }).done(function(response){
+//     $('body').append(response);
+//   });
+// };
 
