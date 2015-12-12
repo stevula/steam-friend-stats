@@ -17,14 +17,3 @@ var formListener = function(){
     });
   });
 };
-
-// var getFriendCount = function(communityID){
-//   $.ajax({
-//     url: '/requests',
-//     method: 'GET',
-//     data: { query: 'count_friends', communityID: communityID }
-//   }).done(function(response){
-//     $('body').append(response);
-//   });
-// };
-

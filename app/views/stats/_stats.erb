@@ -1,8 +1,49 @@
 <table>
+  <thead>
+    <tr>
+      <td><%= user.nickname %></td>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>Friend Count:</td>
-      <td><%= QueryHandler.count_friends(user) %></td>
+      <td><%= QueryHandler.friend_count(user) %></td>
+    </tr>
+
+    <tr>
+      <td>Most played game:</td>
+      <td><%= QueryHandler.most_played_game(user) %></td>
+    </tr>
+
+    <tr>
+      <td>Join date:</td>
+      <td><%= QueryHandler.join_date(user) %></td>
+    </tr>
+
+    <tr>
+      <td>Friend with the most friends:</td>
+      <% most_popular, friend_count = QueryHandler.friend_with_most_friends(user) %>
+      <td><%= "#{most_popular} (#{friend_count})" %></td>
+    </tr>
+
+    <tr>
+      <td>Friend with the most games:</td>
+      <td><%=  %></td>
+    </tr>
+
+    <tr>
+      <td>Most achievements:</td>
+      <td><%=  %></td>
+    </tr>
+
+    <tr>
+      <td>Most playtime:</td>
+      <td><%=  %></td>
+    </tr>
+
+    <tr>
+      <td>Oldest member:</td>
+      <td><%=  %></td>
     </tr>
   </tbody>
 </table>
