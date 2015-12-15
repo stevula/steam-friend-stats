@@ -12,7 +12,8 @@
 
     <tr>
       <td>Most played game:</td>
-      <td><%= QueryHandler.most_played_game(user) %></td>
+      <% most_played_game, time = QueryHandler.most_played_game(user) %>
+      <td><%= "#{most_played_game} (#{time})" %></td>
     </tr>
 
     <tr>
@@ -23,12 +24,13 @@
     <tr>
       <td>Friend with the most friends:</td>
       <% most_popular, friend_count = QueryHandler.friend_with_most_friends(user) %>
-      <td><%= "#{most_popular} (#{friend_count})" %></td>
+      <td><%= "#{most_popular.nickname} (#{friend_count})" %></td>
     </tr>
 
     <tr>
       <td>Friend with the most games:</td>
-      <td><%=  %></td>
+      <% most_games, game_count = QueryHandler.friend_with_most_games(user) %>
+      <td><%= "#{most_games.nickname} (#{game_count})" %></td>
     </tr>
 
     <tr>
@@ -38,12 +40,14 @@
 
     <tr>
       <td>Most playtime:</td>
-      <td><%=  %></td>
+      <% addict, game, time = QueryHandler.friend_most_played_game(user) %>
+      <td><%= "#{addict.nickname}, #{game.name} (#{time})" %></td>
     </tr>
 
     <tr>
       <td>Oldest member:</td>
-      <td><%=  %></td>
+      <% eldest, join_date = QueryHandler.oldest_member(user) %>
+      <td><%= "#{eldest.nickname} (#{join_date})" %></td>
     </tr>
   </tbody>
 </table>

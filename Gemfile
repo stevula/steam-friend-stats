@@ -15,6 +15,7 @@ gem 'faker'
 gem 'rack', '1.5.2'
 
 gem 'shotgun'
+gem 'pry-byebug'
 
 gem 'steam-condenser'
 
