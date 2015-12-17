@@ -17,7 +17,10 @@ gem 'rack', '1.5.2'
 gem 'shotgun'
 gem 'pry-byebug'
 
+# For SteamCondenser
 gem 'steam-condenser'
+# gem 'multi_xml'
+# gem 'multi_json'
 
 group :test do
   gem 'shoulda-matchers'

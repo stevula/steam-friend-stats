@@ -1,3 +1,5 @@
+#Steam Friend Thingy
+
 GetFriendList
 GetPlayerAchievements
 GetUserStatsForGame
