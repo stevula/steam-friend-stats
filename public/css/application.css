@@ -54,6 +54,9 @@ h2 {
     .stats td:hover {
       border-bottom: 1px solid black;
     }
+  .stats th {
+    text-align: left;
+  }
   .stats a {
     text-decoration: none;
     color: green;
