@@ -1,11 +1,15 @@
 #Steam Friend Thingy
+A simple application that retrieves statistics on your Steam friends and compares them against your own statistics.
 
-*Most friends
-*Most played game in last 2 weeks
-*Most played game of all time - *not practical due to Steam API limitations*
-*Most playtime in last 2 weeks - *not practical due to Steam API limitations*
-*Most total playtime - *not practical due to Steam API limitations*
-*Most games
-*Most achievements - *not practical due to Steam API limitations*
-*Oldest Steam member
-*Newest Steam member
+##Featured Stats
+* Most friends
+* Most played game in last 2 weeks
+* Most games
+* Oldest Steam member
+* Newest Steam member
+
+##Intended Stats Deemed Impractical Due to API Limitations
+* Most played game of all time
+* Most total playtime
+* Most total playtime in last 2 weeks
+* Most achievements
