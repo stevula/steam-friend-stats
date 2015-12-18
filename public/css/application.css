@@ -1,20 +1,52 @@
-/** {
-  border: 1px solid red;
-}*/
-
-.stats-col-header {
-  font-weight: bold;
+h1 {
+  text-align: center;
+  font-weight:  normal;
 }
 
-.stats-cols-friend {
-  background-color: lavender;
+h2 {
+  font-family: geneva;
+  border-top: 1px solid gray;
+  padding: 1em 0;
+  text-align: center;
+  font-weight: normal;
 }
 
-.stats-cols-user {
-  background-color: #FFFFA4;
+.form-steam-id {
+  background-color: #BFBFBF;
+  margin: 0 auto;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  width: 40em;
 }
+  .form-steam-id input {
+      line-height: 1.5em;
+      border: none;
+      margin: 0 .25em;
+      outline: none;
+      padding: .25em .5em;
+  }
+  .form-steam-id input[type=text]{
+    outline: none;
+    margin: 0 .5em;
+  }
+  #submit {
+    background-color: black;
+    color: white;
+  }
+  #submit:hover {
+    background-color: white;
+    color: black;
+  }
 
-td {
-  padding: 0.5em;
+.stats {
+  margin: 0 auto;
+  width: 90%;
+  border-spacing: 3em 1em;
+  border-collapse: separate;
 }
-
+  .stats-col-header {
+    font-weight: bold;
+  }
+  .stats td {
+/*     padding: 0.5em 2em; */border-bottom: 1px solid #E6E6E6;}
