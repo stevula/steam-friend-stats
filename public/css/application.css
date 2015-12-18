@@ -81,12 +81,27 @@ h2 {
   margin: 2em;
   text-align: center;
 }
-  #wait-message {
-    animation: blinker 2s linear infinite;
+
+  .wait {
     display: none;
+    margin: 1em;
+  }
+
+  .wait-message {
+    animation: blinker 2s linear infinite;
   }
 
   @keyframes blinker {
     50% { opacity: 0.0; }
+  }
+
+  .wait-image {
+    border-radius: 50%;
+    animation: rotate 4s linear infinite;
+  }
+
+  @keyframes rotate {
+    0%   {transform: rotateY(0deg);}
+    100% {transform: rotateY(720deg);}
   }
 
