@@ -15,22 +15,19 @@ gem 'rake'
 gem 'rack', '1.5.2'
 
 gem 'shotgun'
-gem 'pry-byebug'
+# gem 'pry-byebug'
 
-# For SteamCondenser
 gem 'steam-condenser'
-# gem 'multi_xml'
-# gem 'multi_json'
 
-group :test do
-  gem 'shoulda-matchers'
-  gem 'rack-test'
-  gem 'rspec', '~>3.0'
-  gem 'capybara'
-  gem 'database_cleaner', '~> 1.4.1'
-end
+# group :test do
+#   gem 'shoulda-matchers'
+#   gem 'rack-test'
+#   gem 'rspec', '~>3.0'
+#   gem 'capybara'
+#   gem 'database_cleaner', '~> 1.4.1'
+# end
 
-group :test, :development do
-  gem 'factory_girl'
-  gem 'faker'
-end
+# group :test, :development do
+#   gem 'factory_girl'
+#   gem 'faker'
+# end
