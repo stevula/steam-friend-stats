@@ -5,6 +5,7 @@ $(document).ready(function() {
 var formListener = function(){
   $('#submit').on('click', function(e){
     e.preventDefault();
+    clearTable();
 
     var steamID = $('#steam_id').val();
 
@@ -13,7 +14,14 @@ var formListener = function(){
       method: 'GET',
       data: { steam_id: steamID }
     }).done(function(response){
-      $('body').append(response);
+      $('#stats-area').append(response);
+    })
+    .fail(function(response){
+      alert("error");
     });
   });
+};
+
+var clearTable = function(){
+  $('.stats').remove();
 };

@@ -1,10 +1,15 @@
-<table>
+<table class="stats">
+  <caption><h2><%= user.nickname %></h2></caption>
+  <colgroup>
+    <col class="stats-col-header" span="1">
+    <col class="stats-cols-friend" span="2">
+    <col class="stats-cols-user" span="2">
+  </colgroup>
   <thead>
-    <caption><h2><%= user.nickname %></h2></caption>
     <tr>
       <th></th>
-      <th class="span-2" colspan="2">Friend</th>
-      <th class="span-2" colspan="2">You</th>
+      <th colspan="2">Friend</th>
+      <th colspan="2">You</th>
     </tr>
   </thead>
   <tbody>
@@ -29,11 +34,20 @@
 
     <tr>
       <td>Oldest Steam member</td>
-      <% friend, year = user.friend_oldest_member %>
+      <% friend, date = user.friend_oldest_member %>
       <td><%= friend %></td>
-      <td><%= year %></td>
+      <td><%= date.strftime("%m/%d/%Y") %></td>
       <td>You</td>
-      <td><%= user.join_date %></td>
+      <td><%= user.join_date.strftime("%m/%d/%Y") %></td>
+    </tr>
+
+    <tr>
+      <td>Newest Steam member</td>
+      <% friend, date = user.friend_newest_member %>
+      <td><%= friend %></td>
+      <td><%= date.strftime("%m/%d/%Y") %></td>
+      <td>You</td>
+      <td><%= user.join_date.strftime("%m/%d/%Y") %></td>
     </tr>
 
     <tr>

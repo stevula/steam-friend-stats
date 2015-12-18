@@ -46,6 +46,7 @@ class SteamId
     return [most_popular_friend.nickname, max_friend_count]
   end
 
+
   def most_played_game
     game  = self.most_played_games.keys.first
     hours = self.most_played_games.values.first
@@ -82,12 +83,12 @@ class SteamId
   end
 
   def join_date
-    self.member_since.year
+    self.member_since
   end
 
   def friend_oldest_member
     eldest    = ""
-    join_date = Date.today.year
+    join_date = Time.now
 
     puts "Calculating oldest Steam member among friends..."
 
@@ -107,6 +108,30 @@ class SteamId
     puts
 
     return [eldest.nickname, join_date]
+  end
+
+  def friend_newest_member
+    newest    = ""
+    join_date = 100.years.ago
+
+    puts "Calculating newest Steam member among friends..."
+
+    @friends.each do |friend|
+      print "."
+
+      begin
+        if friend.join_date > join_date
+          newest    = friend
+          join_date = friend.join_date
+        end
+      rescue
+        next
+      end
+    end
+
+    puts
+
+    return [newest.nickname, join_date]
   end
 
   def game_count
@@ -135,8 +160,5 @@ class SteamId
     puts
 
     return [most_games_friend.nickname, game_count_max]
-  end
-
-  def newbiest_friend
   end
 end

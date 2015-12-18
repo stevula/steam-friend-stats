@@ -2,6 +2,18 @@
   border: 1px solid red;
 }*/
 
+.stats-col-header {
+  font-weight: bold;
+}
+
+.stats-cols-friend {
+  background-color: lavender;
+}
+
+.stats-cols-user {
+  background-color: #FFFFA4;
+}
+
 td {
   padding: 0.5em;
 }
