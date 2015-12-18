@@ -1,38 +1,47 @@
 <table>
   <thead>
-    <caption><%= user.nickname %></caption>
+    <caption><h2><%= user.nickname %></h2></caption>
     <tr>
       <th></th>
-      <th>Friend</th>
-      <th>You</th>
+      <th class="span-2" colspan="2">Friend</th>
+      <th class="span-2" colspan="2">You</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Friend with the most friends</td>
-      <% most_popular, max_friend_count = user.friend_max_friend_count %>
-      <td><%= most_popular %>: <%= max_friend_count %></td>
+      <% friend, count = user.friend_max_friend_count %>
+      <td><%= friend %></td>
+      <td><%= count %></td>
+      <td>You</td>
       <td><%= user.friend_count %></td>
     </tr>
 
     <tr>
       <td>Most played game (last 2 weeks)</td>
-      <% addict, game, play_time = user.friend_most_played_game %>
-      <td><%= addict %>: <%= game %> (<%= play_time %> hrs)</td>
-      <td><%= user.most_played_game %></td>
+      <% friend, game, hours = user.friend_most_played_game %>
+      <td><%= friend %></td>
+      <td><%= game %>: <%= hours %> hrs</td>
+      <% user_game, user_hours = user.most_played_game %>
+      <td>You</td>
+      <td><%= user_game %>: <%= user_hours %> hrs</td>
     </tr>
 
     <tr>
       <td>Oldest Steam member</td>
-      <% geezer, year = user.friend_oldest_member %>
-      <td><%= geezer %>: <%= year %></td>
+      <% friend, year = user.friend_oldest_member %>
+      <td><%= friend %></td>
+      <td><%= year %></td>
+      <td>You</td>
       <td><%= user.join_date %></td>
     </tr>
 
     <tr>
       <td>Most games</td>
-      <% hoarder, games = user.friend_most_games %>
-      <td><%= hoarder %>: <%= games %></td>
+      <% friend, games = user.friend_most_games %>
+      <td><%= friend %></td>
+      <td><%= games %></td>
+      <td>You</td>
       <td><%= user.game_count %></td>
     </tr>
   </tbody>

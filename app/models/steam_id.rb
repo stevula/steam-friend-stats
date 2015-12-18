@@ -76,9 +76,7 @@ class SteamId
       end
     end
 
-    puts "User: #{addict}"
-    puts "Game: #{game}"
-    puts "Time: #{max_play_time}"
+    puts
 
     return [addict.nickname, game, max_play_time]
   end
@@ -137,5 +135,8 @@ class SteamId
     puts
 
     return [most_games_friend.nickname, game_count_max]
+  end
+
+  def newbiest_friend
   end
 end
