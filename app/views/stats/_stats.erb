@@ -8,54 +8,54 @@
   <thead>
     <tr>
       <th></th>
-      <!-- <th colspan="2">Friend</th> -->
-      <!-- <th colspan="2">You</th> -->
+      <th colspan="2">Friend</th>
+      <th colspan="2">You</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Most friends</td>
       <% friend, count = user.friend_max_friend_count %>
-      <td><%= friend %></td>
+      <td><a href="<%= friend.base_url %>"><img class="icon" src="<%= friend.icon_url %>"><%= friend.nickname %></a></td>
       <td><%= count %></td>
-      <td>You</td>
+      <td><a href="<%= user.base_url %>"><img class="icon" src="<%= user.icon_url %>"><%= user.nickname %></a></td>
       <td><%= user.friend_count %></td>
     </tr>
 
     <tr>
       <td>Most games</td>
       <% friend, games = user.friend_most_games %>
-      <td><%= friend %></td>
+      <td><a href="<%= friend.base_url %>"><img class="icon" src="<%= friend.icon_url %>"><%= friend.nickname %></a></td>
       <td><%= games %></td>
-      <td>You</td>
+      <td><a href="<%= user.base_url %>"><img class="icon" src="<%= user.icon_url %>"><%= user.nickname %></a></td>
       <td><%= user.game_count %></td>
     </tr>
 
     <tr>
       <td>Most playtime in a game (last 2 weeks)</td>
       <% friend, game, hours = user.friend_most_played_game %>
-      <td><%= friend %></td>
+      <td><a href="<%= friend.base_url %>"><img class="icon" src="<%= friend.icon_url %>"><%= friend.nickname %></a></td>
       <td><%= game %>: <%= hours %> hrs</td>
       <% user_game, user_hours = user.most_played_game %>
-      <td>You</td>
+      <td><a href="<%= user.base_url %>"><img class="icon" src="<%= user.icon_url %>"><%= user.nickname %></a></td>
       <td><%= user_game %>: <%= user_hours %> hrs</td>
     </tr>
 
     <tr>
       <td>Newest Steam member</td>
       <% friend, date = user.friend_newest_member %>
-      <td><%= friend %></td>
+      <td><a href="<%= friend.base_url %>"><img class="icon" src="<%= friend.icon_url %>"><%= friend.nickname %></a></td>
       <td><%= date.strftime("%m/%d/%Y") %></td>
-      <td>You</td>
+      <td><a href="<%= user.base_url %>"><img class="icon" src="<%= user.icon_url %>"><%= user.nickname %></a></td>
       <td><%= user.join_date.strftime("%m/%d/%Y") %></td>
     </tr>
 
     <tr>
       <td>Oldest Steam member</td>
       <% friend, date = user.friend_oldest_member %>
-      <td><%= friend %></td>
+      <td><a href="<%= friend.base_url %>"><img class="icon" src="<%= friend.icon_url %>"><%= friend.nickname %></a></td>
       <td><%= date.strftime("%m/%d/%Y") %></td>
-      <td>You</td>
+      <td><a href="<%= user.base_url %>"><img class="icon" src="<%= user.icon_url %>"><%= user.nickname %></a></td>
       <td><%= user.join_date.strftime("%m/%d/%Y") %></td>
     </tr>
   </tbody>

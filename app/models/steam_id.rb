@@ -43,7 +43,7 @@ class SteamId
 
     puts
 
-    return [most_popular_friend.nickname, max_friend_count]
+    return [most_popular_friend, max_friend_count]
   end
 
 
@@ -79,7 +79,7 @@ class SteamId
 
     puts
 
-    return [addict.nickname, game, max_play_time]
+    return [addict, game, max_play_time]
   end
 
   def join_date
@@ -107,7 +107,7 @@ class SteamId
 
     puts
 
-    return [eldest.nickname, join_date]
+    return [eldest, join_date]
   end
 
   def friend_newest_member
@@ -131,7 +131,7 @@ class SteamId
 
     puts
 
-    return [newest.nickname, join_date]
+    return [newest, join_date]
   end
 
   def game_count
@@ -159,6 +159,6 @@ class SteamId
 
     puts
 
-    return [most_games_friend.nickname, game_count_max]
+    return [most_games_friend, game_count_max]
   end
 end
