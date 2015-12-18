@@ -1,53 +1,39 @@
 <table>
   <thead>
+    <caption><%= user.nickname %></caption>
     <tr>
-      <td><%= user.nickname %></td>
+      <th></th>
+      <th>Friend</th>
+      <th>You</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Friend Count:</td>
-      <td><%= QueryHandler.friend_count(user) %></td>
+      <td>Friend with the most friends</td>
+      <% most_popular, max_friend_count = user.friend_max_friend_count %>
+      <td><%= most_popular %>: <%= max_friend_count %></td>
+      <td><%= user.friend_count %></td>
     </tr>
 
     <tr>
-      <td>Most played game:</td>
-      <% most_played_game, time = QueryHandler.most_played_game(user) %>
-      <td><%= "#{most_played_game} (#{time})" %></td>
+      <td>Most played game (last 2 weeks)</td>
+      <% addict, game, play_time = user.friend_most_played_game %>
+      <td><%= addict %>: <%= game %> (<%= play_time %> hrs)</td>
+      <td><%= user.most_played_game %></td>
     </tr>
 
     <tr>
-      <td>Join date:</td>
-      <td><%= QueryHandler.join_date(user) %></td>
+      <td>Oldest Steam member</td>
+      <% geezer, year = user.friend_oldest_member %>
+      <td><%= geezer %>: <%= year %></td>
+      <td><%= user.join_date %></td>
     </tr>
 
     <tr>
-      <td>Friend with the most friends:</td>
-      <% most_popular, friend_count = QueryHandler.friend_with_most_friends(user) %>
-      <td><%= "#{most_popular.nickname} (#{friend_count})" %></td>
-    </tr>
-
-    <tr>
-      <td>Friend with the most games:</td>
-      <% most_games, game_count = QueryHandler.friend_with_most_games(user) %>
-      <td><%= "#{most_games.nickname} (#{game_count})" %></td>
-    </tr>
-
-    <tr>
-      <td>Most achievements:</td>
-      <td><%=  %></td>
-    </tr>
-
-    <tr>
-      <td>Most playtime:</td>
-      <%# addict, game, time = QueryHandler.friend_most_played_game(user) %>
-      <td><%# "#{addict.nickname}, #{game.name} (#{time})" %></td>
-    </tr>
-
-    <tr>
-      <td>Oldest member:</td>
-      <% eldest, join_date = QueryHandler.oldest_member(user) %>
-      <td><%= "#{eldest.nickname} (#{join_date})" %></td>
+      <td>Most games</td>
+      <% hoarder, games = user.friend_most_games %>
+      <td><%= hoarder %>: <%= games %></td>
+      <td><%= user.game_count %></td>
     </tr>
   </tbody>
 </table>
