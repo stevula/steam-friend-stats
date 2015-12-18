@@ -41,7 +41,7 @@ var waitMessageListener = function(){
   });
 };
 
-var toggleWaitMessage = function(){ $('#wait-message').toggle(); };
+var toggleWaitMessage = function(){ $('.wait').toggle(); };
 
 // *** need a way to get updates from server for this to work
 // var toggleProgressBars = function(){
