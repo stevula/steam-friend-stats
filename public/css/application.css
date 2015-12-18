@@ -1,0 +1,92 @@
+h1 {
+  text-align: center;
+  font-weight:  normal;
+}
+
+h2 {
+  font-family: Geneva;
+  border-top: 1px solid gray;
+  padding: 1em 0;
+  text-align: center;
+  font-weight: normal;
+}
+
+.form-steam-id {
+  background-color: rgba(191, 191, 191, 0.36);
+  margin: 0 auto;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  width: 40em;
+    letter-spacing: .02em;
+}
+  .form-steam-id input {
+      line-height: 1.5em;
+      border: none;
+      margin: 0 .25em;
+      outline: none;
+      padding: .25em .5em;
+      text-align: center
+  }
+  #steam-id {
+    outline: none;
+    margin: 0 .5em;
+  }
+  #submit {
+    background-color: black;
+    color: white;
+  }
+  #submit:hover {
+    background-color: white;
+    color: black;
+  }
+
+.stats {
+  margin: 0 auto;
+  width: 90%;
+  border-spacing: 3em 1em;
+  border-collapse: separate;
+}
+  .stats-col-header {
+    font-weight: bold;
+  }
+  .stats td {
+    border-bottom: 1px solid #E6E6E6;
+  }
+    .stats td:hover {
+      border-bottom: 1px solid black;
+    }
+  .stats th {
+    text-align: left;
+  }
+  .stats a {
+    text-decoration: none;
+    color: green;
+  }
+
+.icon {
+  height: 1em;
+  margin-right: .25em
+}
+
+.progress-label {
+  display: inline-block;
+  width: 12em;
+  line-height: 2em;
+  text-align: right;
+  margin-right: 1em;
+}
+
+#loading-bars {
+  margin: 2em;
+  text-align: center;
+}
+  #wait-message {
+    animation: blinker 2s linear infinite;
+    display: none;
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0.0; }
+  }
+

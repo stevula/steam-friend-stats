@@ -1,24 +1,54 @@
 $(document).ready(function() {
-  formListener();
+  bindListeners();
 });
 
+var bindListeners = function(){
+  formListener();
+  waitMessageListener();
+};
+
+// submit ajax request
 var formListener = function(){
-  $('#submit').on('click', function(e){
+  $('body').on('click', '#submit', function(e){
     e.preventDefault();
+    clearTable();
 
-    var communityID = $('#steam_id').val();
+    var steamID = $('#steam-id').val();
 
-    getFriendList(communityID);
+    $.ajax({
+      url: '/stats',
+      method: 'GET',
+      data: { steam_id: steamID }
+    }).done(function(response){
+      $('#stats-area').append(response);
+    })
+    .fail(function(response){
+      alert("error");
+    });
   });
 };
 
-var getFriendCount = function(communityID){
-  $.ajax({
-    url: '/requests',
-    method: 'POST',
-    data: { query: 'count_friends', communityID: communityID }
-  }).done(function(response){
-    $('body').append(response);
+// remove previous result when new search initiated
+var clearTable = function(){$('.stats').remove();};
+
+// toggle wait message on with form submit, off with ajax response
+var waitMessageListener = function(){
+  $('body').on('click', '#submit', function(){
+    toggleWaitMessage();
+  });
+  $(document).ajaxComplete(function(){
+    toggleWaitMessage();
   });
 };
 
+var toggleWaitMessage = function(){ $('#wait-message').toggle(); };
+
+// *** need a way to get updates from server for this to work
+// var toggleProgressBars = function(){
+//   $('#loading-bars').toggle();
+//   resetProgressBars();
+// };
+
+// var resetProgressBars = function(){
+//   $('.progress-label progress').val("0");
+// }

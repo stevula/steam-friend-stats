@@ -1,5 +1,48 @@
-<form action="/requests" method="POST">
-  <label for="steam_id">Steam ID:</label>
-  <input id="steam_id" type="text" name="steam_id">
+<form class="form-steam-id" action="/stats" method="GET">
+  <label for="steam-id">Steam ID, Community ID, or Custom URL:</label>
+  <input id="steam-id" type="text" name="steam-id" value="76561197979940569">
   <input id="submit" type="submit">
 </form>
+
+<div id="loading-bars">
+  <span id="wait-message">It's gonna take some time.</span>
+
+  <!-- progress bars would be nice. need way to send updates from server via ajax -->
+
+<!--   <div>
+    <div class="progress-label">
+      Counting friends:
+    </div>
+    <progress value="0"></progress>
+  </div>
+
+  <div>
+    <div class="progress-label">
+      Fetching friend data:
+    </div>
+    <progress value="0"></progress>
+  </div>
+
+  <div>
+    <div class="progress-label">
+      Fetching friend game data:
+    </div>
+    <progress value="0"></progress>
+  </div>
+
+  <div>
+    <div class="progress-label">
+      Counting friends' games:
+    </div>
+    <progress value="0"></progress>
+  </div>
+
+  <div>
+    <div class="progress-label">
+      Calculating account ages:
+    </div>
+    <progress value="0"></progress>
+  </div> -->
+</div>
+
+<div id="stats-area"></div>
