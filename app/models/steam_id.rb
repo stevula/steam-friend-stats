@@ -2,7 +2,7 @@
 
 class SteamId
   def initialize_friends
-    puts "Fetching friend data..."
+    puts "Fetching friend data... (#{self.friends.length} friends)"
 
     self.friends.each do |friend|
       print "."

@@ -4,7 +4,7 @@ h1 {
 }
 
 h2 {
-  font-family: geneva;
+  font-family: Geneva;
   border-top: 1px solid gray;
   padding: 1em 0;
   text-align: center;
@@ -18,6 +18,7 @@ h2 {
   line-height: 4em;
   text-align: center;
   width: 40em;
+    letter-spacing: .02em;
 }
   .form-steam-id input {
       line-height: 1.5em;
@@ -25,8 +26,9 @@ h2 {
       margin: 0 .25em;
       outline: none;
       padding: .25em .5em;
+      text-align: center
   }
-  #steam_id {
+  #steam-id {
     outline: none;
     margin: 0 .5em;
   }
@@ -66,4 +68,25 @@ h2 {
   height: 1em;
   margin-right: .25em
 }
+
+.progress-label {
+  display: inline-block;
+  width: 12em;
+  line-height: 2em;
+  text-align: right;
+  margin-right: 1em;
+}
+
+#loading-bars {
+  margin: 2em;
+  text-align: center;
+}
+  #wait-message {
+    animation: blinker 2s linear infinite;
+    display: none;
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0.0; }
+  }
 

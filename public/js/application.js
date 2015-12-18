@@ -1,13 +1,19 @@
 $(document).ready(function() {
-  formListener();
+  bindListeners();
 });
 
+var bindListeners = function(){
+  formListener();
+  waitMessageListener();
+};
+
+// submit ajax request
 var formListener = function(){
-  $('#submit').on('click', function(e){
+  $('body').on('click', '#submit', function(e){
     e.preventDefault();
     clearTable();
 
-    var steamID = $('#steam_id').val();
+    var steamID = $('#steam-id').val();
 
     $.ajax({
       url: '/stats',
@@ -22,6 +28,27 @@ var formListener = function(){
   });
 };
 
-var clearTable = function(){
-  $('.stats').remove();
+// remove previous result when new search initiated
+var clearTable = function(){$('.stats').remove();};
+
+// toggle wait message on with form submit, off with ajax response
+var waitMessageListener = function(){
+  $('body').on('click', '#submit', function(){
+    toggleWaitMessage();
+  });
+  $(document).ajaxComplete(function(){
+    toggleWaitMessage();
+  });
 };
+
+var toggleWaitMessage = function(){ $('#wait-message').toggle(); };
+
+// *** need a way to get updates from server for this to work
+// var toggleProgressBars = function(){
+//   $('#loading-bars').toggle();
+//   resetProgressBars();
+// };
+
+// var resetProgressBars = function(){
+//   $('.progress-label progress').val("0");
+// }
