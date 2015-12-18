@@ -1,11 +1,10 @@
-# me = SteamId.from_steam_id("STEAM_0:1:9837420")
-
 class SteamId
   def initialize_friends
     puts "Fetching friend data... (#{self.friends.length} friends)"
 
     self.friends.each do |friend|
       print "."
+
       begin
         friend.fetch
       rescue
@@ -17,12 +16,13 @@ class SteamId
   end
 
   def friend_count
+    # @friends comes from gem class
     @friends.length
   end
 
   def friend_max_friend_count
-    most_popular_friend = ""
-    max_friend_count    = 0
+    top_friend        = ""
+    max_friend_count  = 0
 
     puts "Counting friends' friends..."
 
@@ -33,21 +33,22 @@ class SteamId
         friend_count = friend.friends.length
 
         if friend_count > max_friend_count
-          most_popular_friend = friend
+          top_friend = friend
           max_friend_count    = friend_count
         end
       rescue
         next
       end
     end
-
     puts
 
-    return [most_popular_friend, max_friend_count]
+    return [top_friend, max_friend_count]
   end
 
 
   def most_played_game
+    # #most_played_games comes from gem class and returns a hash of games and
+    #   with most played as first key-value pair
     game  = self.most_played_games.keys.first
     hours = self.most_played_games.values.first
 
@@ -55,7 +56,7 @@ class SteamId
   end
 
   def friend_most_played_game
-    addict        = ""
+    top_friend    = ""
     game          = ""
     max_play_time = 0
 
@@ -68,7 +69,7 @@ class SteamId
         fav_game, fav_game_time = friend.most_played_game
 
         if fav_game_time > max_play_time
-          addict        = friend
+          top_friend    = friend
           game          = fav_game
           max_play_time = fav_game_time
         end
@@ -76,13 +77,13 @@ class SteamId
         next
       end
     end
-
     puts
 
-    return [addict, game, max_play_time]
+    return [top_friend, game, max_play_time]
   end
 
   def join_date
+    # returns a time object
     self.member_since
   end
 
@@ -141,7 +142,7 @@ class SteamId
   def friend_most_games
     most_games_friend = ""
     game_count_max    = 0
-3
+
     puts "Searching through friends' games..."
 
     @friends.each do |friend|

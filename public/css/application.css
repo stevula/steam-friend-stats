@@ -39,6 +39,7 @@ h2 {
   #submit:hover {
     background-color: white;
     color: black;
+    outline: 1px solid black;
   }
 
 .stats {
@@ -88,7 +89,7 @@ h2 {
   }
 
   .wait-message {
-    animation: blinker 2s linear infinite;
+    animation: blinker 3s linear infinite;
   }
 
   @keyframes blinker {
@@ -97,7 +98,7 @@ h2 {
 
   .wait-image {
     border-radius: 50%;
-    animation: rotate 4s linear infinite;
+    animation: rotate 6s linear infinite;
   }
 
   @keyframes rotate {
