@@ -1,5 +1,8 @@
 #Steam Friend Thingy
-A simple application that retrieves statistics on your Steam friends and compares them against your own statistics.
+A single-page Ruby/Sinatra application that retrieves statistics on your Steam friends and compares them against your own statistics. Data comes from Steam via the [Steam Condenser](https://github.com/koraktor/steam-condenser-ruby) gem. 
+
+[Steam Friend Thingy](https://steam-friend-thingy.herokuapp.com/)
+Note that you sometimes have to submit 2-3 times before it works due to some issues with Heroku. Will fix this as soon as possible.
 
 ##Implemented Goals
 * Most friends
