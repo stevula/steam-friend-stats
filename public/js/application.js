@@ -23,7 +23,7 @@ var formListener = function(){
       $('#stats-area').append(response);
     })
     .fail(function(response){
-      alert("error");
+      alert("I'm a little buggy. Please try again.");
     });
   });
 };
